@@ -1,0 +1,25 @@
+section,dataset,setting,method,metric,single_run,mean,std,abs_change,note
+clean,FER2013,clean,Base,Accuracy (%),42.86,45.00,2.58,,Table 2 clean-setting result
+clean,FER2013,clean,Naive Fusion,Accuracy (%),42.14,45.71,3.11,,Table 2 clean-setting result
+clean,FER2013,clean,Gate Only,Accuracy (%),42.14,41.43,1.24,,Table 2 clean-setting result
+clean,FER2013,clean,QGFace-LLaVA,Accuracy (%),45.00,44.76,0.41,,Table 2 clean-setting result
+clean,CelebA-40,clean,Base,mAcc (%),90.44,90.48,0.06,,Table 2 clean-setting result
+clean,CelebA-40,clean,Naive Fusion,mAcc (%),90.56,90.59,0.05,,Table 2 clean-setting result
+clean,CelebA-40,clean,Gate Only,mAcc (%),90.42,90.44,0.04,,Table 2 clean-setting result
+clean,CelebA-40,clean,QGFace-LLaVA,mAcc (%),90.57,90.54,0.08,,Table 2 clean-setting result
+clean,UTKFace,clean,Base,MAE,7.545,7.435,0.101,,Table 2 clean-setting result
+clean,UTKFace,clean,Naive Fusion,MAE,6.980,7.060,0.082,,Table 2 clean-setting result
+clean,UTKFace,clean,Gate Only,MAE,3.727,3.863,0.121,,Table 2 clean-setting result
+clean,UTKFace,clean,QGFace-LLaVA,MAE,7.424,7.317,0.104,,Table 2 clean-setting result
+robustness,CelebA-40,noisy60,Naive Fusion,mAcc (%),90.47,,,,Table 3 robustness result; clean value 90.56; abs change 0.095
+robustness,CelebA-40,missing,Naive Fusion,mAcc (%),90.41,,,,Table 3 robustness result; clean value 90.56; abs change 0.158
+robustness,CelebA-40,noisy60,QGFace-LLaVA,mAcc (%),90.51,,,,Table 3 robustness result; clean value 90.57; abs change 0.058
+robustness,CelebA-40,missing,QGFace-LLaVA,mAcc (%),90.56,,,,Table 3 robustness result; clean value 90.57; abs change 0.010
+robustness,CelebA-40,shuffled,QGFace-LLaVA,mAcc (%),90.58,,,,Table 3 robustness result; clean value 90.57; abs change 0.009
+robustness,UTKFace,noisy60,Naive Fusion,MAE,6.958,,,,Table 3 robustness result; clean value 6.980; abs change 0.023
+robustness,UTKFace,missing,Naive Fusion,MAE,6.974,,,,Table 3 robustness result; clean value 6.980; abs change 0.007
+robustness,UTKFace,shuffled,Naive Fusion,MAE,7.341,,,,Table 3 robustness result; clean value 6.980; abs change 0.361
+robustness,UTKFace,shuffled,Gate Only,MAE,9.224,,,,Table 3 robustness result; clean value 3.727; abs change 5.497
+robustness,UTKFace,noisy60,QGFace-LLaVA,MAE,7.136,,,,Table 3 robustness result; clean value 7.424; abs change 0.288
+robustness,UTKFace,missing,QGFace-LLaVA,MAE,7.237,,,,Table 3 robustness result; clean value 7.424; abs change 0.187
+robustness,UTKFace,shuffled,QGFace-LLaVA,MAE,7.447,,,,Table 3 robustness result; clean value 7.424; abs change 0.023
