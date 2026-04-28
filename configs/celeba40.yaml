@@ -1,0 +1,64 @@
+# Configuration for CelebA-40 facial attribute recognition experiments
+
+project:
+  name: QGFace-LLaVA
+  task: facial_attribute_recognition
+  dataset: CelebA-40
+
+data:
+  root: data/CelebA
+  train_size: 8000
+  val_size: 2000
+  image_size: 224
+  num_workers: 4
+
+task:
+  type: multi_label_classification
+  num_attributes: 40
+
+metadata:
+  use_metadata: true
+  alignment: moderate
+  fields:
+    - age
+    - gender
+    - age_confidence
+    - gender_confidence
+    - availability
+  settings:
+    - clean
+    - noisy60
+    - missing
+    - shuffled
+
+model:
+  method: qgface_llava
+  visual_backbone: facellava
+  fusion_type: quality_aware_controlled_fusion
+  preserve_visual_dominance: true
+  num_labels: 40
+
+training:
+  epochs: 20
+  batch_size: 16
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  seed: 42
+
+loss:
+  task_loss: binary_cross_entropy
+  gate_regularization: true
+  visual_preservation: true
+  lambda_gate: 0.01
+  lambda_visual: 0.01
+
+evaluation:
+  metric: mAcc
+  higher_is_better: true
+  save_predictions: true
+
+output:
+  save_dir: outputs/celeba40
+  log_file: outputs/celeba40/train_log.txt
+  prediction_file: outputs/celeba40/predictions.csv
+  result_file: outputs/celeba40/results.json
