@@ -1,0 +1,70 @@
+# Configuration for FER2013 facial expression recognition experiments
+
+project:
+  name: QGFace-LLaVA
+  task: facial_expression_recognition
+  dataset: FER2013
+
+data:
+  root: data/FER2013
+  train_size: 350
+  val_size: 140
+  image_size: 224
+  num_workers: 4
+
+classes:
+  - angry
+  - disgust
+  - fear
+  - happy
+  - neutral
+  - sad
+  - surprise
+
+metadata:
+  use_metadata: true
+  alignment: low
+  fields:
+    - age
+    - gender
+    - age_confidence
+    - gender_confidence
+    - availability
+  settings:
+    - clean
+    - noisy60
+    - missing
+    - shuffled
+
+model:
+  method: qgface_llava
+  visual_backbone: facellava
+  fusion_type: quality_aware_controlled_fusion
+  preserve_visual_dominance: true
+  num_classes: 7
+
+training:
+  epochs: 20
+  batch_size: 16
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  seed: 42
+
+loss:
+  task_loss: cross_entropy
+  gate_regularization: true
+  visual_preservation: true
+  lambda_gate: 0.01
+  lambda_visual: 0.01
+
+evaluation:
+  metric: accuracy
+  higher_is_better: true
+  save_predictions: true
+  save_confusion_matrix: true
+
+output:
+  save_dir: outputs/fer2013
+  log_file: outputs/fer2013/train_log.txt
+  prediction_file: outputs/fer2013/predictions.csv
+  confusion_matrix_file: outputs/fer2013/confusion_matrix.csv
