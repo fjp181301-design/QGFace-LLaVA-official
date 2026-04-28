@@ -60,7 +60,9 @@ QGFace-LLaVA provides a more reliable way to use metadata by suppressing mislead
 
 ## Repository Status
 
-This repository is being organized for public release. Code, configuration files, and experimental resources will be updated progressively.
+This repository provides a minimal public release for QGFace-LLaVA, including environment requirements, dataset organization instructions, configuration files, and basic training/evaluation entry scripts.
+
+The original datasets and experimental result files are not redistributed in this repository due to dataset license restrictions and file-size considerations.
 
 ## Installation
 
